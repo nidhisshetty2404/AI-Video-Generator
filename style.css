@@ -1,0 +1,403 @@
+/* =========================
+   BODY (BACKGROUND)
+========================= */
+
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+
+    background: linear-gradient(135deg, #1e1e2f, #121212);
+    background-attachment: fixed;
+
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* =========================
+   PAGE LAYOUT
+========================= */
+
+#loginPage, #welcomePage, #appPage {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Default states */
+#loginPage {
+    display: flex;
+    z-index: 3;
+}
+
+#welcomePage {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+#welcomePage.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#appPage {
+    display: none;
+    flex-direction: column;
+    z-index: 1;
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+#appPage.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-box {
+    background: #1f1f2e;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.login-box input {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+/* =========================
+   PROFILE (TOP RIGHT)
+========================= */
+
+.profile-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.profile {
+    background: rgba(255,255,255,0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Dropdown */
+.profile-menu {
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 0;
+
+    background: #1f1f2e;
+    padding: 10px;
+    border-radius: 10px;
+    width: 160px;
+}
+
+.profile-menu button {
+    width: 100%;
+    margin-top: 5px;
+}
+/* =========================
+   NAVBAR (FIXED TOP)
+========================= */
+
+.navbar {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    right: 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    background: #1f1f2e;
+    padding: 30px;
+    border-radius: 20px;
+    width: 900px;
+
+    box-shadow: 
+        0 0 20px grey,
+        0 0 40px rgba(255,255,255,0.2),
+        0 0 80px rgba(108, 99, 255, 0.3);
+
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 0 25px rgba(255,255,255,0.3),
+        0 0 60px rgba(108, 99, 255, 0.6),
+        0 0 100px rgba(108, 99, 255, 0.4);
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.title {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.main-layout {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.left-panel {
+    flex: 1;
+    text-align: left;
+}
+
+.right-panel {
+    flex: 1;
+    min-height: 220px;
+
+    border: 2px dashed rgba(255,255,255,0.2);
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #aaa;
+    flex-direction: column;
+
+    overflow: hidden;
+    position: relative;
+    padding: 15px;
+}
+
+/* =========================
+   INPUT
+========================= */
+
+textarea {
+    width: 100%;
+    height: 120px;
+    margin-top: 10px;
+    padding: 10px;
+
+    border-radius: 10px;
+    border: none;
+}
+
+/* =========================
+   STYLE TAGS
+========================= */
+
+.style-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.tag {
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.tag:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.tag.active {
+    background: linear-gradient(135deg, #6c63ff, #8a7dff);
+    box-shadow: 0 0 12px rgba(108,99,255,0.6);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px 20px;
+
+    background: linear-gradient(135deg, #6c63ff, #8a7dff);
+    color: white;
+
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    box-shadow: 0 0 15px rgba(108,99,255,0.5);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+/* =========================
+   WELCOME TEXT
+========================= */
+
+#welcomeText {
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(167,139,250,0.6);
+}
+
+#quoteText {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #a78bfa;
+}
+
+/* =========================
+   SETTINGS MODAL
+========================= */
+
+.settings-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.6);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999; /* 🔥 IMPORTANT */
+}
+
+.settings-box {
+    background: #1f1f2e;
+    padding: 25px;
+    border-radius: 15px;
+    width: 280px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    text-align: center;
+}
+.settings-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.6);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999; /* 🔥 IMPORTANT */
+}
+
+/* LIGHT MODE */
+
+body.light-mode {
+    background: #f5f5f5;
+    color: black;
+}
+
+body.light-mode .container,
+body.light-mode .login-box,
+body.light-mode .settings-box,
+body.light-mode .profile-menu {
+    background: white;
+    color: black;
+}
+
+body.light-mode textarea {
+    background: #eee;
+    color: black;
+}
+
+body.light-mode .tag {
+    background: rgba(0,0,0,0.1);
+}
+
+body.light-mode .right-panel {
+    border: 2px dashed rgba(0,0,0,0.2);
+}
+.voice-toggle {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.voice-toggle input {
+    margin-right: 8px;
+    cursor: pointer;
+}
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #444;
+    border-top: 6px solid #8b5cf6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 40px auto;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}

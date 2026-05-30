@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video App</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage">
+
+    <div class="login-box">
+
+        <h2>Welcome 🎬</h2>
+
+        <p>Enter your name</p>
+
+        <input 
+            type="text" 
+            id="username" 
+            placeholder="Your name"
+        >
+
+        <button onclick="loginUser()">
+            Start
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- WELCOME PAGE -->
+<div id="welcomePage">
+
+    <h1 id="welcomeText"></h1>
+
+    <p id="quoteText"></p>
+
+</div>
+
+
+<!-- APP PAGE -->
+<div id="appPage">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+
+        <div class="logo">
+            🎬 AI Studio
+        </div>
+
+        <div class="profile-container">
+
+            <div 
+                class="profile" 
+                onclick="toggleProfileMenu()"
+            >
+                👤 <span id="profileName">User</span>
+            </div>
+
+            <!-- PROFILE MENU -->
+            <div class="profile-menu" id="profileMenu">
+
+                <button onclick="openSettings()">
+                    ⚙️ Settings
+                </button>
+
+                <button onclick="logout()">
+                    🚪 Logout
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+
+        <h1 class="title">
+            AI Video Generator
+        </h1>
+
+        <p class="subtitle">
+            Turn your imagination into cinematic reality
+        </p>
+
+
+        <!-- MAIN LAYOUT -->
+        <div class="main-layout">
+
+            <!-- LEFT PANEL -->
+            <div class="left-panel">
+
+                <label>
+                    Describe your scene
+                </label>
+
+                <button onclick="startListening()">
+                    🎤 Speak
+                </button>
+
+                <textarea
+                    id="storyInput"
+                    placeholder="A futuristic city in the clouds with flying cars..."
+                ></textarea>
+
+
+                <!-- STYLE TAGS -->
+                <div class="style-tags" id="styleTags">
+
+                    <div class="tag active">
+                        Cinematic
+                    </div>
+
+                    <div class="tag">
+                        90s Anime
+                    </div>
+
+                    <div class="tag">
+                        3D Render
+                    </div>
+
+                    <div class="tag">
+                        Cyberpunk
+                    </div>
+
+                    <div class="tag">
+                        Oil Painting
+                    </div>
+
+                </div>
+
+
+                <!-- VOICEOVER -->
+                <div class="voice-toggle">
+
+                    <label>
+
+                        <input 
+                            type="checkbox" 
+                            id="voiceToggle"
+                        >
+
+                        🎙️ Enable Voiceover
+
+                    </label>
+
+                </div>
+
+
+                <!-- GENERATE BUTTON -->
+                <button 
+                    id="generateBtn"
+                    onclick="generateVideo()"
+                >
+                    Generate Video
+                </button>
+
+            </div>
+
+
+            <!-- RIGHT PANEL -->
+            <div 
+                class="right-panel" 
+                id="previewBox"
+            >
+
+                <div style="text-align:center;">
+
+                    <p style="font-size:18px;">
+                        🎬
+                    </p>
+
+                    <p>
+                        Video preview will appear here
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SETTINGS MODAL -->
+<div 
+    id="settingsModal" 
+    class="settings-modal"
+>
+
+    <div class="settings-box">
+
+        <h2>
+            ⚙️ Settings
+        </h2>
+
+        <button onclick="toggleTheme()">
+            🌗 Theme
+        </button>
+
+        <button onclick="closeSettings()">
+            ❌ Close
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- CLOSE PROFILE MENU -->
+<script>
+
+document.addEventListener("click", function (e) {
+
+    const menu =
+        document.getElementById("profileMenu");
+
+    const profile =
+        document.querySelector(".profile");
+
+    if (
+        profile &&
+        !profile.contains(e.target)
+    ) {
+        menu.style.display = "none";
+    }
+
+});
+
+</script>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
